@@ -11,7 +11,7 @@ fi
 
 echo "Building $pkgName"
 #Grab the application name
-appName = basename $pkgName
+appName=$(basename $pkgName)
 
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o ./output/$appName
 
