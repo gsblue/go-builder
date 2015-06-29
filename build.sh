@@ -1,5 +1,5 @@
 #!/bin/bash -e
-source /build_environment.sh
+source /setup_environment.sh
 
 echo "Running Tests"
 go test -v -cover ./...
