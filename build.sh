@@ -20,4 +20,6 @@ if [ $? -ne 0 ]; then
 	    exit 1
 fi
 
+chmod 777 ./output
+
 echo "Build succeded!"

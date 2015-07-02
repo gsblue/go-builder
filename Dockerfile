@@ -6,7 +6,7 @@ RUN go get golang.org/x/tools/cmd/cover
 VOLUME /src
 WORKDIR /src
 
-COPY build_environment.sh /
+COPY setup_environment.sh /
 COPY build.sh /
 
 ENTRYPOINT ["/build.sh"]
