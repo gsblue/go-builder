@@ -9,11 +9,16 @@ if [ $? -ne 0 ]; then
 	    exit 1
 fi
 
-echo "Building $pkgName"
-#Grab the application name
-appName=$(basename $pkgName)
+if [ -z "$APP_NAME" ]; then
+	#Grab the application name
+	appName=$(basename $pkgName)
+else
+	appName=$APP_NAME
+fi
 
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o ./output/$appName
+echo "Building $pkgName"
+
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-s" -installsuffix cgo -v -a -o ./output/$appName
 
 if [ $? -ne 0 ]; then
 	    echo "Build failed for $pkgName!"
